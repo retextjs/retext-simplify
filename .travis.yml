@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+- '0.10'
+- '0.11'
+- '0.12'
+- '4.0'
+- '5.0'
+- iojs
+sudo: false
+after_script: npm install codecov.io && cat ./coverage/lcov.info | codecov
+deploy:
+  - provider: npm
+    email: tituswormer@gmail.com
+    api_key:
+        secure: gTKahZGUgv9Nm8/XM93w+r9EdcZFsiuOsFg2BedPUW6BceTmTm6SkM/OA1QXAxQnzN0EWpwyBOaTrAdcxMypdlD5EFxHSXd56ESp6GHXdBW2WYm8LiiOMGuCFslyUB1UQEE1dBN+xutmEK81WIJxcG2W1+m0ZO8bdKPqEgExnE14nHhntaVPJV0xmrkDqgyor9NzrPcwABoc4e5v++jvwQRX2fA3Shfx8Sdr+jmX/Iat6JTjE5YVL9l1Iv4grKAzD09FwuUDenhAQdSXwrcmVtx5zqnzJqMx9ie1MxV9G9u6LvG7Dw+qz10oMLTaj7fSbI/uJShwH/4U9Q18HY2ju4bv8x4OzpJTf5fWqpSDPuMAiGRyfv94vkTBsfJc5I0VtncjCeOeFq32KMamervzRXozQQdDmV0Imhm8TCh23/dU3ydcdkgEatqsMCbJL5zl6F1LQYBrCbz5qFsL0NIFkcUUzJcyIdMMQwd7g/F5Sv0DC7vZA8Reu50mxOGtksYjnMjjt/R+UA1CsLybuXpTvydDNqpaZiLVKGqeY4Q8wqNmpVJSqaCIEJb1UaG3CQpYkGBbIEI2zfvDCVoOrJLj43p1FHcSwwKY1i0pvD+VPmdfCOwTokRnuWeeKWRB8I8VQAlQJ+BoZkxQ9vFTJOjSMSNl8Tx5lpcUbisO6PvN+1s=
+    on:
+      tags: true
+  - provider: releases
+    api_key:
+        secure: W2lM4cEXlUuCjiTcVC0hwrRt8P9E+MSuIOXIKlTyMYhP5yUypZZNjS1n9FzYUQOMkL/B190B9BVHhDlVXeztTPPSmV/lfynZGDH8Q+MTBsvNE9q2WHcWCSZ4VRXaKoZKq55JHLnP5/9467Rse/3lLu02EYfY1WNCHzkWPujA3rcrsA3CyPp9x1DSC7mhfj/NcRfApPLQW8PhDAwut/2aMBdtiKrh44xqC6LDLoTXlzaEcnCo/usKEGohI2DF00WOHP+cloQM6fFMXXk3NDbRbIT1smQwdrAHDI1LbpbTEe18cZU/NIyuvyFFqNpPsSFPM8zLvsft2uXOZ0nsP7WsQ+vD16afAZyPszWyXE85KyutdaGnDH8ynRH5do8PojhG4uK4wg3F+E0IiCh3IYmB5+xptrf1EXD1DWVDcLVZRTekfaL360SbhcflAiGlodanuG047PPlphZLhA/D5QbmQ4Dtn/EsM3maSakE1TB0Xyn9+TsvBkoDWTaFmpmP2mA+uKV7vJtpkQVP9hKYhRqMLR9QSstv3yrz+iELMsQxdhOQSEU/IJp8Pd/DJIekBnJDUkymwcmNmJh0KkhVEa8w0aF3I0z2V23xKY0c1udgIb6Yii/HWYHHr4gV4Qzf8wyf0tE2OhCmr2St1gGmO9h5iNGT1EQV6aUr1LuS24SsbZQ=
+    file:
+      - "retext-simplify.js"
+      - "retext-simplify.min.js"
+    on:
+      tags: true

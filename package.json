@@ -1,0 +1,60 @@
+{
+  "name": "retext-simplify",
+  "version": "0.0.0",
+  "description": "Check phrases for simpler alternatives",
+  "license": "MIT",
+  "keywords": [
+    "simple",
+    "simpler",
+    "synonym",
+    "alternative",
+    "phrase",
+    "retext",
+    "plugin"
+  ],
+  "files": [
+    "index.js",
+    "data/index.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/retext-simplify.git"
+  },
+  "bugs": "https://github.com/wooorm/retext-simplify/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "dependencies": {
+    "nlcst-to-string": "^1.1.0",
+    "nlcst-search": "^1.0.0",
+    "quotation": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "eslint": "^1.0.0",
+    "esmangle": "^1.0.0",
+    "istanbul": "^0.4.0",
+    "jscs": "^2.0.0",
+    "jscs-jsdoc": "^1.0.0",
+    "remark": "^3.0.0",
+    "remark-comment-config": "^2.0.2",
+    "remark-github": "^2.0.0",
+    "remark-lint": "^2.0.2",
+    "remark-slug": "^3.0.1",
+    "remark-validate-links": "^2.0.2",
+    "retext": "^1.0.0",
+    "tape": "^4.0.0",
+    "vfile": "^1.2.0",
+    "vfile-reporter": "^1.5.0"
+  },
+  "scripts": {
+    "build-md": "remark . --quiet --frail",
+    "build-bundle": "browserify index.js --bare -s retextSimplify > retext-simplify.js",
+    "build-mangle": "esmangle retext-simplify.js > retext-simplify.min.js",
+    "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
+    "lint-api": "eslint .",
+    "lint-style": "jscs --reporter inline .",
+    "lint": "npm run lint-api && npm run lint-style",
+    "test-api": "node test.js",
+    "test-coverage": "istanbul cover test.js",
+    "test": "npm run build && npm run lint && npm run test-coverage"
+  }
+}
