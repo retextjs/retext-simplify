@@ -22,7 +22,11 @@ var report = require('vfile-reporter');
 
 retext()
     .use(simplify)
-    .process('You can utilize a shorter word', function (err, file) {
+    .process([
+        'You can utilize a shorter word.',
+        'Be advised, don’t do this.',
+        'That’s the appropriate thing to do.'
+    ].join('\n'), function (err, file) {
         console.log(report(file));
     });
 ```
@@ -31,9 +35,11 @@ Yields:
 
 ```txt
 <stdin>
-   3:1-5:57  warning  Very hard to read sentence
+   1:9-1:16  warning  Replace “utilize” with “use”                                utilize
+   2:1-2:11  warning  Remove “Be advised”                                         be advised
+  3:12-3:23  warning  Replace “appropriate” with “proper”, “right”, or remove it  appropriate
 
-⚠ 1 warning
+⚠ 3 warnings
 ```
 
 ## API
