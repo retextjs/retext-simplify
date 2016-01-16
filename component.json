@@ -14,8 +14,10 @@
   ],
   "repository": "wooorm/retext-simplify",
   "dependencies": {
-    "wooorm/nlcst-to-string": "^1.1.0",
+    "sindresorhus/array-differ": "^1.0.0",
     "wooorm/nlcst-search": "^1.0.0",
+    "wooorm/nlcst-to-string": "^1.1.0",
+    "ljharb/object-keys": "^1.0.9",
     "wooorm/quotation": "^1.0.0"
   },
   "scripts": [

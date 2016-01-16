@@ -23,6 +23,8 @@ var simplify = require('./');
  */
 
 test('simplify', function (t) {
+    t.plan(4);
+
     retext()
         .use(simplify)
         .process([
@@ -44,5 +46,27 @@ test('simplify', function (t) {
             );
         });
 
-    t.end();
+    retext()
+        .use(simplify, {
+            'ignore': [
+                'utilize'
+            ]
+        })
+        .process([
+            'You can utilize a shorter word.',
+            'Be advised, don’t do this.',
+            'That’s the appropriate thing to do.'
+        ].join('\n'), function (err, file) {
+            t.ifError(err, 'should not fail (#2)');
+
+            t.deepEqual(
+                file.messages.map(String),
+                [
+                    '2:1-2:11: Remove “Be advised”',
+                    '3:12-3:23: Replace “appropriate” with “proper”, ' +
+                    '“right”, or remove it'
+                ],
+                'should not warn for `ignore`d phrases'
+            );
+        });
 });

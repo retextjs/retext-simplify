@@ -44,13 +44,18 @@ Yields:
 
 ## API
 
-### `retext.use(simplify)`
+### `retext.use(simplify[, options])`
 
 Check phrases for simpler alternatives.
 
 **Parameters**
 
-*   `simplify` — This plug-in.
+*   `simplify` — This plug-in;
+
+*   `options` (`Object?`, optional):
+
+    *   `ignore` (`Array.<string>`)
+        — List of phrases to *not* warn about.
 
 ## License
 

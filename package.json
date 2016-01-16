@@ -23,8 +23,10 @@
   "bugs": "https://github.com/wooorm/retext-simplify/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "dependencies": {
-    "nlcst-to-string": "^1.1.0",
+    "array-differ": "^1.0.0",
     "nlcst-search": "^1.0.0",
+    "nlcst-to-string": "^1.1.0",
+    "object-keys": "^1.0.9",
     "quotation": "^1.0.0"
   },
   "devDependencies": {
