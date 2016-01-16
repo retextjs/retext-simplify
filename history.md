@@ -2,6 +2,12 @@
 
 <!--lint disable no-multiple-toplevel-headings -->
 
+1.1.0 / 2016-01-16
+==================
+
+*   Update dev-dependencies ([`e44029b`](https://github.com/wooorm/retext-simplify/commit/e44029b))
+*   Add support for ignoring phrases in options ([`4c3531f`](https://github.com/wooorm/retext-simplify/commit/4c3531f))
+
 1.0.1 / 2016-01-14
 ==================
 

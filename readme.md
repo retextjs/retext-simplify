@@ -55,7 +55,7 @@ Check phrases for simpler alternatives.
 *   `options` (`Object?`, optional):
 
     *   `ignore` (`Array.<string>`)
-        — List of phrases to *not* warn about.
+        — List of phrases to _not_ warn about.
 
 ## License
 
