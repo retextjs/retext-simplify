@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings -->
 
+1.2.0 / 2016-02-27
+==================
+
+*   Remove `might` > `may` suggestion ([`a09a58c`](https://github.com/wooorm/retext-simplify/commit/a09a58c))
+
 1.1.0 / 2016-01-16
 ==================
 
