@@ -1,5 +1,7 @@
 # retext-simplify [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
+<!--lint disable heading-increment list-item-spacing-->
+
 Check phrases for simpler alternatives with [**retext**][retext].
 
 ## Installation
@@ -10,8 +12,8 @@ Check phrases for simpler alternatives with [**retext**][retext].
 npm install retext-simplify
 ```
 
-**retext-simplify** is also available for [duo][duo-install], and as an
-AMD, CommonJS, and globals module, [uncompressed and compressed][releases].
+**retext-simplify** is also available as an AMD, CommonJS, and
+globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
@@ -44,18 +46,13 @@ Yields:
 
 ## API
 
-### `retext.use(simplify[, options])`
+### `retext().use(simplify[, options])`
 
 Check phrases for simpler alternatives.
 
-**Parameters**
+###### `options`
 
-*   `simplify` — This plug-in;
-
-*   `options` (`Object?`, optional):
-
-    *   `ignore` (`Array.<string>`)
-        — List of phrases to _not_ warn about.
+*   `ignore` (`Array.<string>`) — phrases _not_ to warn about.
 
 ## License
 
@@ -72,8 +69,6 @@ Check phrases for simpler alternatives.
 [codecov]: https://codecov.io/github/wooorm/retext-simplify
 
 [npm-install]: https://docs.npmjs.com/cli/install
-
-[duo-install]: http://duojs.org/#getting-started
 
 [releases]: https://github.com/wooorm/retext-simplify/releases
 

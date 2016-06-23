@@ -2,26 +2,22 @@
  * @author Titus Wormer
  * @copyright 2016 Titus Wormer
  * @license MIT
- * @module retext:simplify
+ * @module retext:intensify
  * @fileoverview Test suite for `retext-simplify`.
  */
 
 'use strict';
 
 /* eslint-env node */
+/* jscs:disable jsDoc */
+/* jscs:disable maximumLineLength */
 
-/*
- * Dependencies.
- */
-
+/* Dependencies. */
 var test = require('tape');
 var retext = require('retext');
 var simplify = require('./');
 
-/*
- * Tests.
- */
-
+/* Tests. */
 test('simplify', function (t) {
     t.plan(4);
 
@@ -48,7 +44,7 @@ test('simplify', function (t) {
 
     retext()
         .use(simplify, {
-            'ignore': [
+            ignore: [
                 'utilize'
             ]
         })

@@ -10,21 +10,15 @@
 
 /* eslint-env commonjs */
 
-/*
- * Dependencies.
- */
-
+/* Dependencies. */
 var keys = require('object-keys');
 var difference = require('array-differ');
 var nlcstToString = require('nlcst-to-string');
 var quotation = require('quotation');
 var search = require('nlcst-search');
-var patterns = require('./data/index.json');
+var patterns = require('./index.json');
 
-/*
- * List of all phrases.
- */
-
+/* List of all phrases. */
 var list = keys(patterns);
 
 /**
@@ -67,8 +61,8 @@ function attacher(processor, options) {
             }
 
             message = file.warn(message, {
-                'start': match[0].position.start,
-                'end': match[match.length - 1].position.end
+                start: match[0].position.start,
+                end: match[match.length - 1].position.end
             });
 
             message.ruleId = phrase;
@@ -79,8 +73,5 @@ function attacher(processor, options) {
     return transformer;
 }
 
-/*
- * Expose.
- */
-
+/* Expose. */
 module.exports = attacher;
