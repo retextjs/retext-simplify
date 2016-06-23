@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+2.0.0 / 2016-06-23
+==================
+
+*   Remove Duo support ([`3af6a01`](https://github.com/wooorm/retext-simplify/commit/3af6a01))
+
 1.2.0 / 2016-02-27
 ==================
 
