@@ -65,7 +65,7 @@ function attacher(processor, options) {
                 end: match[match.length - 1].position.end
             });
 
-            message.ruleId = phrase;
+            message.ruleId = phrase.replace(/\s+/g, '-').toLowerCase();
             message.source = 'retext-simplify';
         });
     }
