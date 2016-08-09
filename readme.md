@@ -1,19 +1,14 @@
 # retext-simplify [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
-<!--lint disable heading-increment list-item-spacing-->
-
 Check phrases for simpler alternatives with [**retext**][retext].
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
 npm install retext-simplify
 ```
-
-**retext-simplify** is also available as an AMD, CommonJS, and
-globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
@@ -36,9 +31,8 @@ retext()
 Yields:
 
 ```txt
-<stdin>
    1:9-1:16  warning  Replace “utilize” with “use”                                utilize
-   2:1-2:11  warning  Remove “Be advised”                                         be advised
+   2:1-2:11  warning  Remove “Be advised”                                         be-advised
   3:12-3:23  warning  Replace “appropriate” with “proper”, “right”, or remove it  appropriate
 
 ⚠ 3 warnings
@@ -68,9 +62,7 @@ Check phrases for simpler alternatives.
 
 [codecov]: https://codecov.io/github/wooorm/retext-simplify
 
-[npm-install]: https://docs.npmjs.com/cli/install
-
-[releases]: https://github.com/wooorm/retext-simplify/releases
+[npm]: https://docs.npmjs.com/cli/install
 
 [license]: LICENSE
 
