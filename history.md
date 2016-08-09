@@ -2,6 +2,12 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+3.0.0 / 2016-08-09
+==================
+
+*   Refactor code-style to use `xo` ([`76d58e0`](https://github.com/wooorm/retext-simplify/commit/76d58e0))
+*   Remove spaces from `ruleId`, and lowercase ([`c47bb41`](https://github.com/wooorm/retext-simplify/commit/c47bb41))
+
 2.0.0 / 2016-06-23
 ==================
 
