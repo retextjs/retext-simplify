@@ -12,46 +12,41 @@
     "retext",
     "plugin"
   ],
-  "files": [
-    "index.json",
-    "index.js"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wooorm/retext-simplify.git"
-  },
+  "repository": "https://github.com/wooorm/retext-simplify",
   "bugs": "https://github.com/wooorm/retext-simplify/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+  ],
+  "files": [
+    "index.json",
+    "index.js"
   ],
   "dependencies": {
     "lodash.difference": "^4.4.0",
     "nlcst-search": "^1.0.0",
     "nlcst-to-string": "^2.0.0",
     "object-keys": "^1.0.9",
-    "quotation": "^1.0.0"
+    "quotation": "^1.0.0",
+    "unist-util-position": "^3.0.0"
   },
   "devDependencies": {
     "browserify": "^13.0.1",
     "esmangle": "^1.0.1",
-    "nyc": "^7.1.0",
-    "remark-cli": "^1.0.0",
-    "remark-comment-config": "^4.0.0",
-    "remark-github": "^5.0.0",
-    "remark-lint": "^4.0.0",
-    "remark-validate-links": "^4.0.0",
-    "retext": "^3.0.0",
+    "nyc": "^10.0.0",
+    "remark-cli": "^2.1.0",
+    "remark-preset-wooorm": "^1.0.0",
+    "retext": "^4.0.0",
     "tape": "^4.0.0",
-    "xo": "^0.16.0"
+    "xo": "^0.17.1"
   },
   "scripts": {
-    "build-md": "remark . --quiet --frail",
+    "build-md": "remark . -qfo",
     "build-bundle": "browserify index.js --bare -s retextSimplify > retext-simplify.js",
     "build-mangle": "esmangle retext-simplify.js > retext-simplify.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
-    "test-api": "node test.js",
+    "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test.js",
     "test": "npm run build && npm run lint && npm run test-coverage"
   },
@@ -65,22 +60,10 @@
     "space": true,
     "rules": {},
     "ignores": [
-      "retext-simplify.js",
-      "retext-simplify.min.js"
+      "retext-simplify.js"
     ]
   },
   "remarkConfig": {
-    "output": true,
-    "plugins": {
-      "lint": {
-        "heading-increment": false
-      },
-      "github": null,
-      "comment-config": null,
-      "validate-links": null
-    },
-    "settings": {
-      "bullet": "*"
-    }
+    "presets": "wooorm"
   }
 }
