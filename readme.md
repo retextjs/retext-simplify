@@ -18,22 +18,22 @@ var simplify = require('retext-simplify');
 var report = require('vfile-reporter');
 
 retext()
-    .use(simplify)
-    .process([
-        'You can utilize a shorter word.',
-        'Be advised, don’t do this.',
-        'That’s the appropriate thing to do.'
-    ].join('\n'), function (err, file) {
-        console.log(report(file));
-    });
+  .use(simplify)
+  .process([
+    'You can utilize a shorter word.',
+    'Be advised, don’t do this.',
+    'That’s the appropriate thing to do.'
+  ].join('\n'), function (err, file) {
+      console.error(report(err || file));
+  });
 ```
 
 Yields:
 
 ```txt
-   1:9-1:16  warning  Replace “utilize” with “use”                                utilize
-   2:1-2:11  warning  Remove “Be advised”                                         be-advised
-  3:12-3:23  warning  Replace “appropriate” with “proper”, “right”, or remove it  appropriate
+   1:9-1:16  warning  Replace “utilize” with “use”                                utilize      retext-simplify
+   2:1-2:11  warning  Remove “Be advised”                                         be-advised   retext-simplify
+  3:12-3:23  warning  Replace “appropriate” with “proper”, “right”, or remove it  appropriate  retext-simplify
 
 ⚠ 3 warnings
 ```
