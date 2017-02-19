@@ -24,14 +24,15 @@ function simplify(options) {
     function finder(match, index, parent, phrase) {
       var pattern = patterns[phrase];
       var replace = pattern.replace;
-      var value = quotation(nlcstToString(match), '“', '”');
+      var value = nlcstToString(match);
+      var quoted = quotation(value, '“', '”');
       var reason;
       var message;
 
       if (pattern.omit && replace.length === 0) {
-        reason = 'Remove ' + value;
+        reason = 'Remove ' + quoted;
       } else {
-        reason = 'Replace ' + value + ' with ' + quotation(replace, '“', '”').join(', ');
+        reason = 'Replace ' + quoted + ' with ' + quotation(replace, '“', '”').join(', ');
 
         if (pattern.omit) {
           reason += ', or remove it';
@@ -45,6 +46,8 @@ function simplify(options) {
 
       message.ruleId = phrase.replace(/\s+/g, '-').toLowerCase();
       message.source = 'retext-simplify';
+      message.actual = value;
+      message.expected = replace;
     }
   }
 }

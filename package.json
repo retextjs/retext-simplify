@@ -16,7 +16,10 @@
   "bugs": "https://github.com/wooorm/retext-simplify/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+    "Josiah Sprague <josiah.sprague@gmail.com>",
+    "Sylvan Swierkosz <sswierkosz@gmail.com>",
+    "Tom MacWright <tmcw@users.noreply.github.com>"
   ],
   "files": [
     "index.json",
