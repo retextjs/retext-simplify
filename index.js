@@ -45,6 +45,8 @@ function simplify(options) {
 
       message.ruleId = phrase.replace(/\s+/g, '-').toLowerCase();
       message.source = 'retext-simplify';
+      message.actual = value.slice(1,-1);
+      message.expected = replace;
     }
   }
 }
