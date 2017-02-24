@@ -12,7 +12,7 @@ module.exports = simplify;
 
 var list = keys(patterns);
 
-function simplify(processor, options) {
+function simplify(options) {
   var ignore = (options || {}).ignore || [];
   var phrases = difference(list, ignore);
 
