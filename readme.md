@@ -60,6 +60,8 @@ Check phrases for simpler alternatives.
 
 *   [`retext-equality`](https://github.com/wooorm/retext-equality)
     — Check possible insensitive, inconsiderate language
+*   [`retext-intensify`](https://github.com/wooorm/retext-intensify)
+    — Check for weak and mitigating wording
 *   [`retext-passive`](https://github.com/wooorm/retext-passive)
     — Check passive voice
 *   [`retext-profanities`](https://github.com/wooorm/retext-profanities)
