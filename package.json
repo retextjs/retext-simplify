@@ -12,8 +12,8 @@
     "retext",
     "plugin"
   ],
-  "repository": "wooorm/retext-simplify",
-  "bugs": "https://github.com/wooorm/retext-simplify/issues",
+  "repository": "retextjs/retext-simplify",
+  "bugs": "https://github.com/retextjs/retext-simplify/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",

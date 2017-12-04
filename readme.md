@@ -58,13 +58,13 @@ Check phrases for simpler alternatives.
 
 ## Related
 
-*   [`retext-equality`](https://github.com/wooorm/retext-equality)
+*   [`retext-equality`](https://github.com/retextjs/retext-equality)
     — Check possible insensitive, inconsiderate language
-*   [`retext-intensify`](https://github.com/wooorm/retext-intensify)
+*   [`retext-intensify`](https://github.com/retextjs/retext-intensify)
     — Check for weak and mitigating wording
-*   [`retext-passive`](https://github.com/wooorm/retext-passive)
+*   [`retext-passive`](https://github.com/retextjs/retext-passive)
     — Check passive voice
-*   [`retext-profanities`](https://github.com/wooorm/retext-profanities)
+*   [`retext-profanities`](https://github.com/retextjs/retext-profanities)
     — Check profane and vulgar wording
 
 ## License
@@ -73,13 +73,13 @@ Check phrases for simpler alternatives.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/retext-simplify.svg
+[travis-badge]: https://img.shields.io/travis/retextjs/retext-simplify.svg
 
-[travis]: https://travis-ci.org/wooorm/retext-simplify
+[travis]: https://travis-ci.org/retextjs/retext-simplify
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/retext-simplify.svg
+[codecov-badge]: https://img.shields.io/codecov/c/github/retextjs/retext-simplify.svg
 
-[codecov]: https://codecov.io/github/wooorm/retext-simplify
+[codecov]: https://codecov.io/github/retextjs/retext-simplify
 
 [npm]: https://docs.npmjs.com/cli/install
 
@@ -87,4 +87,4 @@ Check phrases for simpler alternatives.
 
 [author]: http://wooorm.com
 
-[retext]: https://github.com/wooorm/retext
+[retext]: https://github.com/retextjs/retext
