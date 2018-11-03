@@ -14,9 +14,9 @@
   ],
   "repository": "retextjs/retext-simplify",
   "bugs": "https://github.com/retextjs/retext-simplify/issues",
-  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+    "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
     "Josiah Sprague <josiah.sprague@gmail.com>",
     "Sylvan Swierkosz <sswierkosz@gmail.com>",
     "Tom MacWright <tmcw@users.noreply.github.com>"
