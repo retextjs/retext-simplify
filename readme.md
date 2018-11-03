@@ -23,16 +23,16 @@ That’s the appropriate thing to do.
 And our script, `example.js`, looks as follows:
 
 ```javascript
-var vfile = require('to-vfile');
-var report = require('vfile-reporter');
-var retext = require('retext');
-var simplify = require('retext-simplify');
+var vfile = require('to-vfile')
+var report = require('vfile-reporter')
+var retext = require('retext')
+var simplify = require('retext-simplify')
 
 retext()
   .use(simplify)
-  .process(vfile.readSync('example.txt'), function (err, file) {
-    console.error(report(err || file));
-  });
+  .process(vfile.readSync('example.txt'), function(err, file) {
+    console.error(report(err || file))
+  })
 ```
 
 Yields:
