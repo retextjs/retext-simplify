@@ -5,3 +5,4 @@ node_modules/
 coverage/
 retext-simplify.js
 retext-simplify.min.js
+yarn.lock
