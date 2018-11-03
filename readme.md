@@ -94,6 +94,8 @@ repository, organisation, or community you agree to abide by its terms.
 
 [chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
 
+[chat]: https://spectrum.chat/unified/retext
+
 [npm]: https://docs.npmjs.com/cli/install
 
 [license]: license
