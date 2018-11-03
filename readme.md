@@ -1,4 +1,4 @@
-# retext-simplify [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# retext-simplify [![Build][build-badge]][build] [![Coverage][coverage-badge]][coverage] [![Downloads][downloads-badge]][downloads] [![Chat][chat-badge]][chat]
 
 Check phrases for simpler alternatives with [**retext**][retext].
 
@@ -80,13 +80,19 @@ repository, organisation, or community you agree to abide by its terms.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/retextjs/retext-simplify.svg
+[build-badge]: https://img.shields.io/travis/retextjs/retext-simplify.svg
 
-[travis]: https://travis-ci.org/retextjs/retext-simplify
+[build]: https://travis-ci.org/retextjs/retext-simplify
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/retextjs/retext-simplify.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/retextjs/retext-simplify.svg
 
-[codecov]: https://codecov.io/github/retextjs/retext-simplify
+[coverage]: https://codecov.io/github/retextjs/retext-simplify
+
+[downloads-badge]: https://img.shields.io/npm/dm/retext-simplify.svg
+
+[downloads]: https://www.npmjs.com/package/retext-simplify
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
 
 [npm]: https://docs.npmjs.com/cli/install
 
