@@ -2,7 +2,7 @@
 
 var test = require('tape');
 var retext = require('retext');
-var simplify = require('./');
+var simplify = require('.');
 
 test('simplify', function (t) {
   t.plan(4);
