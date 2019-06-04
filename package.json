@@ -1,6 +1,6 @@
 {
   "name": "retext-simplify",
-  "version": "4.1.2",
+  "version": "4.1.3",
   "description": "retext plugin to check phrases for simpler alternatives",
   "license": "MIT",
   "keywords": [
