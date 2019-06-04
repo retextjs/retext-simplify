@@ -1,16 +1,15 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: W2lM4cEXlUuCjiTcVC0hwrRt8P9E+MSuIOXIKlTyMYhP5yUypZZNjS1n9FzYUQOMkL/B190B9BVHhDlVXeztTPPSmV/lfynZGDH8Q+MTBsvNE9q2WHcWCSZ4VRXaKoZKq55JHLnP5/9467Rse/3lLu02EYfY1WNCHzkWPujA3rcrsA3CyPp9x1DSC7mhfj/NcRfApPLQW8PhDAwut/2aMBdtiKrh44xqC6LDLoTXlzaEcnCo/usKEGohI2DF00WOHP+cloQM6fFMXXk3NDbRbIT1smQwdrAHDI1LbpbTEe18cZU/NIyuvyFFqNpPsSFPM8zLvsft2uXOZ0nsP7WsQ+vD16afAZyPszWyXE85KyutdaGnDH8ynRH5do8PojhG4uK4wg3F+E0IiCh3IYmB5+xptrf1EXD1DWVDcLVZRTekfaL360SbhcflAiGlodanuG047PPlphZLhA/D5QbmQ4Dtn/EsM3maSakE1TB0Xyn9+TsvBkoDWTaFmpmP2mA+uKV7vJtpkQVP9hKYhRqMLR9QSstv3yrz+iELMsQxdhOQSEU/IJp8Pd/DJIekBnJDUkymwcmNmJh0KkhVEa8w0aF3I0z2V23xKY0c1udgIb6Yii/HWYHHr4gV4Qzf8wyf0tE2OhCmr2St1gGmO9h5iNGT1EQV6aUr1LuS24SsbZQ=
+    secure: Jqw1/PZMZy6l28QnUO/8AuLEjiYHA+GkmHYJ4fmHO7D098yA3Vh144I1HZ4689sxAzuAOFuBiy97vnm6Tl+6baUVLoFHV+Lk0sW5idmJD/BmFkW3kPDT0gq3SZ2KLSMw3AHXGYTMBp+UBGJihjIoTpwNhig6CZg3Ivj4crS8/Fs9Yi2TqyMJ32HQ7Ykughton4XEeGjdicsTKXehnvKWJrypJn2KETz3b93B3V7AOiTKsWczW+a2LY3P6ueCJjnfTzjCssERNtMEnhS8rM9SspzfmJpu/U/f1JCd5lN0xuJVqbXl2OJfq4TAK7QuLtQXWg1vRZugCzqQSuoDHe2P6euLgCidmToyXBIsLjYuY65YsbkL7Cx3VrguUyMHSdqJcTA+RnO0NT1EYh42Dz41v3wGFSi/TsNnmcOoh/OcsTs1qK2/7Q0SxnXhH8sct7UqxeSffVRGOrMmqtsUXfMAO0BVhoZ6GAhxp/SWAmq46sJWACK0Cu/zeK3PbillIcWI5jVgOCMzMfwWhpUMXCDyLD62fV7JSLzVvx9C15UTHaG6Rr55yVkFbJulT8EopfV3wUMIFGFg4MNM4kzwNwLlLGj6sai49oZmIWfYRoyusyiMS37BY1hzQghLTBDq4+9MavCIPrmwTO9OSF8L+qsB4G9Su6YzEv25E61UZ3sayHE=
   file:
-    - "retext-simplify.js"
-    - "retext-simplify.min.js"
+    - 'retext-simplify.js'
+    - 'retext-simplify.min.js'
   on:
     tags: true
-    node: '9.0'
