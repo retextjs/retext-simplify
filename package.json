@@ -1,16 +1,17 @@
 {
   "name": "retext-simplify",
   "version": "4.1.2",
-  "description": "Check phrases for simpler alternatives",
+  "description": "retext plugin to check phrases for simpler alternatives",
   "license": "MIT",
   "keywords": [
+    "unified",
+    "retext",
+    "plugin",
     "simple",
     "simpler",
     "synonym",
     "alternative",
-    "phrase",
-    "retext",
-    "plugin"
+    "phrase"
   ],
   "repository": "retextjs/retext-simplify",
   "bugs": "https://github.com/retextjs/retext-simplify/issues",
