@@ -43,7 +43,7 @@ function simplify(options) {
         }
       }
 
-      message = file.warn(reason, {
+      message = file.message(reason, {
         start: position.start(match[0]),
         end: position.end(match[match.length - 1])
       })
