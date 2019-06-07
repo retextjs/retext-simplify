@@ -5,26 +5,48 @@ var retext = require('retext')
 var simplify = require('.')
 
 test('simplify', function(t) {
-  t.plan(4)
+  t.plan(3)
+
+  retext()
+    .use(simplify)
+    .process('You can utilize a shorter word.', function(err, file) {
+      t.deepEqual(
+        [err].concat(file.messages),
+        [
+          null,
+          {
+            message: 'Replace `utilize` with `use`',
+            name: '1:9-1:16',
+            reason: 'Replace `utilize` with `use`',
+            line: 1,
+            column: 9,
+            location: {
+              start: {line: 1, column: 9, offset: 8},
+              end: {line: 1, column: 16, offset: 15}
+            },
+            source: 'retext-simplify',
+            ruleId: 'utilize',
+            fatal: false,
+            actual: 'utilize',
+            expected: ['use']
+          }
+        ],
+        'should emit messages'
+      )
+    })
 
   retext()
     .use(simplify)
     .process(
-      [
-        'You can utilize a shorter word.',
-        'Be advised, don’t do this.',
-        'That’s the appropriate thing to do.'
-      ].join('\n'),
+      'You can utilize a shorter word.\nBe advised, don’t do this.\nThat’s the appropriate thing to do.',
       function(err, file) {
-        t.ifError(err, 'should not fail (#1)')
-
         t.deepEqual(
-          file.messages.map(String),
+          [err].concat(file.messages.map(String)),
           [
-            '1:9-1:16: Replace “utilize” with “use”',
-            '2:1-2:11: Remove “Be advised”',
-            '3:12-3:23: Replace “appropriate” with “proper”, ' +
-              '“right”, or remove it'
+            null,
+            '1:9-1:16: Replace `utilize` with `use`',
+            '2:1-2:11: Remove `Be advised`',
+            '3:12-3:23: Replace `appropriate` with `proper`, `right`, or remove it'
           ],
           'should warn about simpler synonyms'
         )
@@ -33,24 +55,11 @@ test('simplify', function(t) {
 
   retext()
     .use(simplify, {ignore: ['utilize']})
-    .process(
-      [
-        'You can utilize a shorter word.',
-        'Be advised, don’t do this.',
-        'That’s the appropriate thing to do.'
-      ].join('\n'),
-      function(err, file) {
-        t.ifError(err, 'should not fail (#2)')
-
-        t.deepEqual(
-          file.messages.map(String),
-          [
-            '2:1-2:11: Remove “Be advised”',
-            '3:12-3:23: Replace “appropriate” with “proper”, ' +
-              '“right”, or remove it'
-          ],
-          'should not warn for `ignore`d phrases'
-        )
-      }
-    )
+    .process('You can utilize a shorter word.', function(err, file) {
+      t.deepEqual(
+        [err].concat(file.messages.map(String)),
+        [null],
+        'should not warn for ignored phrases'
+      )
+    })
 })

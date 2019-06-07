@@ -27,7 +27,6 @@
     "index.js"
   ],
   "dependencies": {
-    "lodash.difference": "^4.4.0",
     "nlcst-search": "^1.0.0",
     "nlcst-to-string": "^2.0.0",
     "object-keys": "^1.0.9",
