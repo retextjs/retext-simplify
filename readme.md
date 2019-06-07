@@ -47,9 +47,9 @@ Yields:
 
 ```txt
 example.txt
-   1:9-1:16  warning  Replace “utilize” with “use”                                utilize      retext-simplify
-   2:1-2:11  warning  Remove “Be advised”                                         be-advised   retext-simplify
-  3:12-3:23  warning  Replace “appropriate” with “proper”, “right”, or remove it  appropriate  retext-simplify
+   1:9-1:16  warning  Replace `utilize` with `use`                                utilize      retext-simplify
+   2:1-2:11  warning  Remove `Be advised`                                         be-advised   retext-simplify
+  3:12-3:23  warning  Replace `appropriate` with `proper`, `right`, or remove it  appropriate  retext-simplify
 
 ⚠ 3 warnings
 ```
@@ -62,7 +62,28 @@ Check phrases for simpler alternatives.
 
 ###### `options.ignore`
 
-`Array.<string>` — phrases *not* to warn about.
+Phrases *not* to warn about (`Array.<string>` - `ruleId`s).
+
+### Messages
+
+Each message is emitted as a [`VFileMessage`][message] on `file`, with the
+following fields:
+
+###### `message.source`
+
+Name of this plugin (`'retext-simplify'`).
+
+###### `message.ruleId`
+
+Normalized not ok phrase (`string`, such as `'utilize'`).
+
+###### `message.actual`
+
+Current not ok phrase (`string`, such as `'Utilize'`).
+
+###### `message.expected`
+
+List of suggestions (`Array.<string>`, such as `['use']`).
 
 ## Related
 
@@ -132,3 +153,5 @@ abide by its terms.
 [author]: https://wooorm.com
 
 [retext]: https://github.com/retextjs/retext
+
+[message]: https://github.com/vfile/vfile-message
