@@ -5,7 +5,7 @@ var retext = require('retext')
 var simplify = require('.')
 
 test('simplify', function(t) {
-  t.plan(3)
+  t.plan(4)
 
   retext()
     .use(simplify)
@@ -32,6 +32,19 @@ test('simplify', function(t) {
           }
         ],
         'should emit messages'
+      )
+    })
+
+  retext()
+    .use(simplify)
+    .process('In order for this to work, clap your hands.', function(
+      err,
+      file
+    ) {
+      t.deepEqual(
+        [err].concat(file.messages.map(String)),
+        [null, '1:1-1:13: Replace `In order for` with `for`'],
+        'should warn about wordiness'
       )
     })
 
