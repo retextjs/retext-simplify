@@ -909,6 +909,11 @@
       "to"
     ]
   },
+  "in order for": {
+    "replace": [
+      "for"
+    ]
+  },
   "in regard to": {
     "replace": [
       "about",
