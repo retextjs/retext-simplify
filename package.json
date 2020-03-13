@@ -31,7 +31,7 @@
     "index.js"
   ],
   "dependencies": {
-    "nlcst-search": "^1.0.0",
+    "nlcst-search": "^2.0.0",
     "nlcst-to-string": "^2.0.0",
     "object-keys": "^1.0.9",
     "quotation": "^1.0.0",
