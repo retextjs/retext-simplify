@@ -4,14 +4,14 @@ var test = require('tape')
 var retext = require('retext')
 var simplify = require('.')
 
-test('simplify', function(t) {
+test('simplify', function (t) {
   t.plan(4)
 
   retext()
     .use(simplify)
-    .process('You can utilize a shorter word.', function(err, file) {
+    .process('You can utilize a shorter word.', function (err, file) {
       t.deepEqual(
-        [err].concat(file.messages),
+        [err].concat(JSON.parse(JSON.stringify(file.messages))),
         [
           null,
           {
@@ -37,7 +37,7 @@ test('simplify', function(t) {
 
   retext()
     .use(simplify)
-    .process('In order for this to work, clap your hands.', function(
+    .process('In order for this to work, clap your hands.', function (
       err,
       file
     ) {
@@ -52,7 +52,7 @@ test('simplify', function(t) {
     .use(simplify)
     .process(
       'You can utilize a shorter word.\nBe advised, don’t do this.\nThat’s the appropriate thing to do.',
-      function(err, file) {
+      function (err, file) {
         t.deepEqual(
           [err].concat(file.messages.map(String)),
           [
@@ -68,7 +68,7 @@ test('simplify', function(t) {
 
   retext()
     .use(simplify, {ignore: ['utilize']})
-    .process('You can utilize a shorter word.', function(err, file) {
+    .process('You can utilize a shorter word.', function (err, file) {
       t.deepEqual(
         [err].concat(file.messages.map(String)),
         [null],
