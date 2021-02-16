@@ -9,9 +9,9 @@ test('simplify', function (t) {
 
   retext()
     .use(simplify)
-    .process('You can utilize a shorter word.', function (err, file) {
+    .process('You can utilize a shorter word.', function (error, file) {
       t.deepEqual(
-        [err].concat(JSON.parse(JSON.stringify(file.messages))),
+        [error].concat(JSON.parse(JSON.stringify(file.messages))),
         [
           null,
           {
@@ -37,24 +37,24 @@ test('simplify', function (t) {
 
   retext()
     .use(simplify)
-    .process('In order for this to work, clap your hands.', function (
-      err,
-      file
-    ) {
-      t.deepEqual(
-        [err].concat(file.messages.map(String)),
-        [null, '1:1-1:13: Replace `In order for` with `for`'],
-        'should warn about wordiness'
-      )
-    })
+    .process(
+      'In order for this to work, clap your hands.',
+      function (error, file) {
+        t.deepEqual(
+          [error].concat(file.messages.map(String)),
+          [null, '1:1-1:13: Replace `In order for` with `for`'],
+          'should warn about wordiness'
+        )
+      }
+    )
 
   retext()
     .use(simplify)
     .process(
       'You can utilize a shorter word.\nBe advised, don’t do this.\nThat’s the appropriate thing to do.',
-      function (err, file) {
+      function (error, file) {
         t.deepEqual(
-          [err].concat(file.messages.map(String)),
+          [error].concat(file.messages.map(String)),
           [
             null,
             '1:9-1:16: Replace `utilize` with `use`',
@@ -68,9 +68,9 @@ test('simplify', function (t) {
 
   retext()
     .use(simplify, {ignore: ['utilize']})
-    .process('You can utilize a shorter word.', function (err, file) {
+    .process('You can utilize a shorter word.', function (error, file) {
       t.deepEqual(
-        [err].concat(file.messages.map(String)),
+        [error].concat(file.messages.map(String)),
         [null],
         'should not warn for ignored phrases'
       )
