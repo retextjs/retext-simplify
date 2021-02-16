@@ -112,9 +112,9 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/retextjs/retext-simplify.svg
+[build-badge]: https://github.com/retextjs/retext-simplify/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/retextjs/retext-simplify
+[build]: https://github.com/retextjs/retext-simplify/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/retextjs/retext-simplify.svg
 
