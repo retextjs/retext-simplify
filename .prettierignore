@@ -1,5 +1,2 @@
 coverage/
-retext-simplify.js
-retext-simplify.min.js
-*.json
 *.md
