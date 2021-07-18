@@ -1,3 +1,12 @@
+/**
+ * @typedef Pattern
+ * @property {string[]} replace
+ * @property {boolean} [omit=false]
+ */
+
+/**
+ * @type {Object.<string, Pattern>}
+ */
 export const patterns = {
   'a number of': {
     replace: ['many', 'some']

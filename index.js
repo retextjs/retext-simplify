@@ -1,3 +1,10 @@
+/**
+ * @typedef Options
+ *   Configuration.
+ * @property {string[]} [ignore]
+ *   Phrases *not* to warn about (rule IDs).
+ */
+
 import {toString} from 'nlcst-to-string'
 import {quotation} from 'quotation'
 import {search} from 'nlcst-search'
@@ -6,52 +13,38 @@ import {patterns} from './patterns.js'
 
 const source = 'retext-simplify'
 
-const list = Object.keys(patterns)
+const keys = Object.keys(patterns)
 
-export default function retextSimplify(options) {
-  const ignore = (options || {}).ignore || []
+/**
+ * Plugin to check phrases for simpler alternatives.
+ *
+ * @type {import('unified').Plugin<[Options?]>}
+ */
+export default function retextSimplify(options = {}) {
+  const ignore = options.ignore || []
+  const searches =
+    ignore.length > 0 ? keys.filter((d) => !ignore.includes(d)) : keys
 
-  return transformer
-
-  function transformer(tree, file) {
-    search(tree, list, finder)
-
-    function finder(match, index, parent, phrase) {
-      const id = phrase.replace(/\s+/g, '-').toLowerCase()
+  return (tree, file) => {
+    search(tree, searches, (match, _, _1, phrase) => {
       const pattern = patterns[phrase]
-      const expected = pattern.replace
       const actual = toString(match)
-      let reason
-
-      if (ignore.includes(id)) {
-        return
-      }
-
-      if (pattern.omit && expected.length === 0) {
-        reason = 'Remove ' + quotation(actual, '`')
-      } else {
-        reason =
-          'Replace ' +
-          quotation(actual, '`') +
-          ' with ' +
-          quotation(expected, '`').join(', ')
-
-        if (pattern.omit) {
-          reason += ', or remove it'
-        }
-      }
+      const expected = pattern.replace
 
       Object.assign(
         file.message(
-          reason,
-          {
-            start: pointStart(match[0]),
-            end: pointEnd(match[match.length - 1])
-          },
-          [source, id].join(':')
+          pattern.omit && expected.length === 0
+            ? 'Remove ' + quotation(actual, '`')
+            : 'Replace ' +
+                quotation(actual, '`') +
+                ' with ' +
+                quotation(expected, '`').join(', ') +
+                (pattern.omit ? ', or remove it' : ''),
+          {start: pointStart(match[0]), end: pointEnd(match[match.length - 1])},
+          [source, phrase.replace(/\s+/g, '-').toLowerCase()].join(':')
         ),
         {actual, expected}
       )
-    }
+    })
   }
 }
