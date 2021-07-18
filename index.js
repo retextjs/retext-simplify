@@ -1,4 +1,3 @@
-import keys from 'object-keys'
 import {toString} from 'nlcst-to-string'
 import {quotation} from 'quotation'
 import {search} from 'nlcst-search'
@@ -7,7 +6,7 @@ import {patterns} from './patterns.js'
 
 const source = 'retext-simplify'
 
-const list = keys(patterns)
+const list = Object.keys(patterns)
 
 export default function retextSimplify(options) {
   const ignore = (options || {}).ignore || []
