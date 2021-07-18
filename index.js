@@ -1,19 +1,15 @@
-'use strict'
-
-var keys = require('object-keys')
-var toString = require('nlcst-to-string')
-var quote = require('quotation')
-var search = require('nlcst-search')
-var position = require('unist-util-position')
-var patterns = require('./index.json')
-
-module.exports = simplify
+import keys from 'object-keys'
+import toString from 'nlcst-to-string'
+import quote from 'quotation'
+import search from 'nlcst-search'
+import position from 'unist-util-position'
+import {patterns} from './patterns.js'
 
 var source = 'retext-simplify'
 
 var list = keys(patterns)
 
-function simplify(options) {
+export default function retextSimplify(options) {
   var ignore = (options || {}).ignore || []
 
   return transformer

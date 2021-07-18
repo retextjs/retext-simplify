@@ -1,14 +1,12 @@
-'use strict'
+import test from 'tape'
+import retext from 'retext'
+import retextSimplify from './index.js'
 
-var test = require('tape')
-var retext = require('retext')
-var simplify = require('.')
-
-test('simplify', function (t) {
+test('retext-simplify', function (t) {
   t.plan(4)
 
   retext()
-    .use(simplify)
+    .use(retextSimplify)
     .process('You can utilize a shorter word.', function (error, file) {
       t.deepEqual(
         [error].concat(JSON.parse(JSON.stringify(file.messages))),
@@ -36,7 +34,7 @@ test('simplify', function (t) {
     })
 
   retext()
-    .use(simplify)
+    .use(retextSimplify)
     .process(
       'In order for this to work, clap your hands.',
       function (error, file) {
@@ -49,7 +47,7 @@ test('simplify', function (t) {
     )
 
   retext()
-    .use(simplify)
+    .use(retextSimplify)
     .process(
       'You can utilize a shorter word.\nBe advised, don’t do this.\nThat’s the appropriate thing to do.',
       function (error, file) {
@@ -67,7 +65,7 @@ test('simplify', function (t) {
     )
 
   retext()
-    .use(simplify, {ignore: ['utilize']})
+    .use(retextSimplify, {ignore: ['utilize']})
     .process('You can utilize a shorter word.', function (error, file) {
       t.deepEqual(
         [error].concat(file.messages.map(String)),
