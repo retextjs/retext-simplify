@@ -1,5 +1,5 @@
 import test from 'tape'
-import retext from 'retext'
+import {retext} from 'retext'
 import retextSimplify from './index.js'
 
 test('retext-simplify', function (t) {
