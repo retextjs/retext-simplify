@@ -5,12 +5,12 @@ import {search} from 'nlcst-search'
 import {pointStart, pointEnd} from 'unist-util-position'
 import {patterns} from './patterns.js'
 
-var source = 'retext-simplify'
+const source = 'retext-simplify'
 
-var list = keys(patterns)
+const list = keys(patterns)
 
 export default function retextSimplify(options) {
-  var ignore = (options || {}).ignore || []
+  const ignore = (options || {}).ignore || []
 
   return transformer
 
@@ -18,14 +18,13 @@ export default function retextSimplify(options) {
     search(tree, list, finder)
 
     function finder(match, index, parent, phrase) {
-      var id = phrase.replace(/\s+/g, '-').toLowerCase()
-      var pattern = patterns[phrase]
-      var expected = pattern.replace
-      var actual = toString(match)
-      var reason
-      var message
+      const id = phrase.replace(/\s+/g, '-').toLowerCase()
+      const pattern = patterns[phrase]
+      const expected = pattern.replace
+      const actual = toString(match)
+      let reason
 
-      if (ignore.indexOf(id) !== -1) {
+      if (ignore.includes(id)) {
         return
       }
 
@@ -43,17 +42,17 @@ export default function retextSimplify(options) {
         }
       }
 
-      message = file.message(
-        reason,
-        {
-          start: pointStart(match[0]),
-          end: pointEnd(match[match.length - 1])
-        },
-        [source, id].join(':')
+      Object.assign(
+        file.message(
+          reason,
+          {
+            start: pointStart(match[0]),
+            end: pointEnd(match[match.length - 1])
+          },
+          [source, id].join(':')
+        ),
+        {actual, expected}
       )
-
-      message.actual = actual
-      message.expected = expected
     }
   }
 }
