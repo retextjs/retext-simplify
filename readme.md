@@ -12,6 +12,9 @@
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -31,15 +34,18 @@ That’s the appropriate thing to do.
 …and our script, `example.js`, looks as follows:
 
 ```js
-var vfile = require('to-vfile')
-var report = require('vfile-reporter')
-var retext = require('retext')
-var simplify = require('retext-simplify')
+import {readSync} from 'to-vfile'
+import {reporter} from 'vfile-reporter'
+import {retext} from 'retext'
+import retextSimplify from 'retext-simplify'
+
+const file = readSync('example.txt')
 
 retext()
-  .use(simplify)
-  .process(vfile.readSync('example.txt'), function(err, file) {
-    console.error(report(err || file))
+  .use(retextSimplify)
+  .process(file)
+  .then((file) => {
+    console.error(reporter(file))
   })
 ```
 
@@ -56,7 +62,10 @@ example.txt
 
 ## API
 
-### `retext().use(simplify[, options])`
+This package exports no identifiers.
+The default export is `retextSimplify`.
+
+### `unified().use(retextSimplify[, options])`
 
 Check phrases for simpler alternatives.
 
