@@ -1,8 +1,8 @@
 import keys from 'object-keys'
-import toString from 'nlcst-to-string'
-import quote from 'quotation'
-import search from 'nlcst-search'
-import position from 'unist-util-position'
+import {toString} from 'nlcst-to-string'
+import {quotation} from 'quotation'
+import {search} from 'nlcst-search'
+import {pointStart, pointEnd} from 'unist-util-position'
 import {patterns} from './patterns.js'
 
 var source = 'retext-simplify'
@@ -30,13 +30,13 @@ export default function retextSimplify(options) {
       }
 
       if (pattern.omit && expected.length === 0) {
-        reason = 'Remove ' + quote(actual, '`')
+        reason = 'Remove ' + quotation(actual, '`')
       } else {
         reason =
           'Replace ' +
-          quote(actual, '`') +
+          quotation(actual, '`') +
           ' with ' +
-          quote(expected, '`').join(', ')
+          quotation(expected, '`').join(', ')
 
         if (pattern.omit) {
           reason += ', or remove it'
@@ -46,8 +46,8 @@ export default function retextSimplify(options) {
       message = file.message(
         reason,
         {
-          start: position.start(match[0]),
-          end: position.end(match[match.length - 1])
+          start: pointStart(match[0]),
+          end: pointEnd(match[match.length - 1])
         },
         [source, id].join(':')
       )
