@@ -3,7 +3,7 @@ import {retext} from 'retext'
 import retextSimplify from './index.js'
 
 test('retext-simplify', (t) => {
-  t.plan(4)
+  t.plan(5)
 
   retext()
     .use(retextSimplify)
@@ -69,6 +69,20 @@ test('retext-simplify', (t) => {
         file.messages.map((d) => String(d)),
         [],
         'should not warn for ignored phrases'
+      )
+    }, t.ifErr)
+
+  retext()
+    .use(retextSimplify)
+    .process('This method has no effect')
+    .then((file) => {
+      t.deepEqual(
+        file.messages.map((d) => String(d)),
+        [
+          '1:13-1:26: Replace `has no effect` with `does nothing`, `does not apply`',
+          '1:20-1:26: Replace `effect` with `choose`, `pick`, `result`'
+        ],
+        'should warn about simpler synonyms'
       )
     }, t.ifErr)
 })
