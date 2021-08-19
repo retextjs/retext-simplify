@@ -304,7 +304,7 @@ export const patterns = {
     replace: ['cheap']
   },
   effect: {
-    replace: ['choose', 'pick']
+    replace: ['choose', 'pick', 'result']
   },
   'effect modifications': {
     replace: ['make changes']
@@ -425,6 +425,9 @@ export const patterns = {
   },
   'has a requirement for': {
     replace: ['needs']
+  },
+  'has no effect': {
+    replace: ['does nothing', 'does not apply']
   },
   herein: {
     replace: ['here']
