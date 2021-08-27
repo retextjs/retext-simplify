@@ -1,4 +1,6 @@
 /**
+ * @typedef {import('nlcst').Root} Root
+ *
  * @typedef Options
  *   Configuration.
  * @property {string[]} [ignore]
@@ -18,7 +20,7 @@ const keys = Object.keys(patterns)
 /**
  * Plugin to check phrases for simpler alternatives.
  *
- * @type {import('unified').Plugin<[Options?]>}
+ * @type {import('unified').Plugin<[Options?], Root>}
  */
 export default function retextSimplify(options = {}) {
   const ignore = options.ignore || []
