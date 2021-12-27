@@ -26,7 +26,8 @@ test('retext-simplify', (t) => {
             },
             fatal: false,
             actual: 'utilize',
-            expected: ['use']
+            expected: ['use'],
+            url: 'https://github.com/retextjs/retext-simplify#readme'
           }
         ],
         'should emit messages'
