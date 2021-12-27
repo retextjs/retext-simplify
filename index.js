@@ -14,6 +14,7 @@ import {pointStart, pointEnd} from 'unist-util-position'
 import {patterns} from './patterns.js'
 
 const source = 'retext-simplify'
+const url = 'https://github.com/retextjs/retext-simplify#readme'
 
 const keys = Object.keys(patterns)
 
@@ -45,7 +46,7 @@ export default function retextSimplify(options = {}) {
           {start: pointStart(match[0]), end: pointEnd(match[match.length - 1])},
           [source, phrase.replace(/\s+/g, '-').toLowerCase()].join(':')
         ),
-        {actual, expected}
+        {actual, expected, url}
       )
     })
   }
