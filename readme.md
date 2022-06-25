@@ -77,9 +77,9 @@ import {reporter} from 'vfile-reporter'
 import {retext} from 'retext'
 import retextSimplify from 'retext-simplify'
 
-const file = retext()
+const file = await retext()
   .use(retextSimplify)
-  .process(readSync('example.txt'))
+  .process(await read('example.txt'))
 
 console.error(reporter(file))
 ```
