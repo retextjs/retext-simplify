@@ -39,7 +39,7 @@ test('retext-simplify', (t) => {
     .process('In order for this to work, clap your hands.')
     .then((file) => {
       t.deepEqual(
-        file.messages.map((d) => String(d)),
+        file.messages.map(String),
         ['1:1-1:13: Replace `In order for` with `for`'],
         'should warn about wordiness'
       )
@@ -52,7 +52,7 @@ test('retext-simplify', (t) => {
     )
     .then((file) => {
       t.deepEqual(
-        file.messages.map((d) => String(d)),
+        file.messages.map(String),
         [
           '1:9-1:16: Replace `utilize` with `use`',
           '2:1-2:11: Remove `Be advised`',
@@ -67,7 +67,7 @@ test('retext-simplify', (t) => {
     .process('You can utilize a shorter word.')
     .then((file) => {
       t.deepEqual(
-        file.messages.map((d) => String(d)),
+        file.messages.map(String),
         [],
         'should not warn for ignored phrases'
       )
@@ -78,7 +78,7 @@ test('retext-simplify', (t) => {
     .process('This method has no effect')
     .then((file) => {
       t.deepEqual(
-        file.messages.map((d) => String(d)),
+        file.messages.map(String),
         [
           '1:13-1:26: Replace `has no effect` with `does nothing`, `does not apply`',
           '1:20-1:26: Replace `effect` with `choose`, `pick`, `result`'
