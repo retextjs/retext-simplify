@@ -1,11 +1,11 @@
 /**
  * @typedef Pattern
- * @property {string[]} replace
+ * @property {Array<string>} replace
  * @property {boolean} [omit=false]
  */
 
 /**
- * @type {Object.<string, Pattern>}
+ * @type {Record<string, Pattern>}
  */
 export const patterns = {
   'a number of': {

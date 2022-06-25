@@ -71,7 +71,7 @@ Check phrases for simpler alternatives.
 
 ###### `options.ignore`
 
-Phrases *not* to warn about (`Array.<string>` - `ruleId`s).
+Phrases *not* to warn about (`Array<string>` - `ruleId`s).
 
 ### Messages
 
@@ -92,7 +92,7 @@ Current not ok phrase (`string`, such as `'Utilize'`).
 
 ###### `message.expected`
 
-List of suggestions (`Array.<string>`, such as `['use']`).
+List of suggestions (`Array<string>`, such as `['use']`).
 
 ## Related
 
