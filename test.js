@@ -13,18 +13,18 @@ test('retext-simplify', (t) => {
         JSON.parse(JSON.stringify(file.messages)),
         [
           {
-            name: '1:9-1:16',
-            message: 'Replace `utilize` with `use`',
-            reason: 'Replace `utilize` with `use`',
-            line: 1,
             column: 9,
-            source: 'retext-simplify',
-            ruleId: 'utilize',
-            position: {
+            fatal: false,
+            message: 'Replace `utilize` with `use`',
+            line: 1,
+            name: '1:9-1:16',
+            place: {
               start: {line: 1, column: 9, offset: 8},
               end: {line: 1, column: 16, offset: 15}
             },
-            fatal: false,
+            reason: 'Replace `utilize` with `use`',
+            ruleId: 'utilize',
+            source: 'retext-simplify',
             actual: 'utilize',
             expected: ['use'],
             url: 'https://github.com/retextjs/retext-simplify#readme'

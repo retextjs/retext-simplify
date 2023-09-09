@@ -33,6 +33,8 @@ export default function retextSimplify(options = {}) {
       const pattern = patterns[phrase]
       const actual = toString(match)
       const expected = pattern.replace
+      const start = pointStart(match[0])
+      const end = pointEnd(match[match.length - 1])
 
       Object.assign(
         file.message(
@@ -43,8 +45,11 @@ export default function retextSimplify(options = {}) {
                 ' with ' +
                 quotation(expected, '`').join(', ') +
                 (pattern.omit ? ', or remove it' : ''),
-          {start: pointStart(match[0]), end: pointEnd(match[match.length - 1])},
-          [source, phrase.replace(/\s+/g, '-').toLowerCase()].join(':')
+          {
+            place: start && end ? {start, end} : undefined,
+            source,
+            ruleId: phrase.replace(/\s+/g, '-').toLowerCase()
+          }
         ),
         {actual, expected, url}
       )
