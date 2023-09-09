@@ -4,28 +4,38 @@ import {retext} from 'retext'
 import retextSimplify from './index.js'
 
 test('retextSimplify', async function (t) {
+  await t.test('should expose the public api', async function () {
+    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
+      'default'
+    ])
+  })
+
   await t.test('should emit a message w/ metadata', async function () {
     const file = await retext()
       .use(retextSimplify)
       .process('You can utilize a shorter word.')
 
-    assert.deepEqual(JSON.parse(JSON.stringify(file.messages[0])), {
-      column: 9,
-      fatal: false,
-      message: 'Replace `utilize` with `use`',
-      line: 1,
-      name: '1:9-1:16',
-      place: {
-        start: {line: 1, column: 9, offset: 8},
-        end: {line: 1, column: 16, offset: 15}
-      },
-      reason: 'Replace `utilize` with `use`',
-      ruleId: 'utilize',
-      source: 'retext-simplify',
-      actual: 'utilize',
-      expected: ['use'],
-      url: 'https://github.com/retextjs/retext-simplify#readme'
-    })
+    assert.deepEqual(
+      JSON.parse(JSON.stringify({...file.messages[0], ancestors: []})),
+      {
+        ancestors: [],
+        column: 9,
+        fatal: false,
+        message: 'Replace `utilize` with `use`',
+        line: 1,
+        name: '1:9-1:16',
+        place: {
+          start: {line: 1, column: 9, offset: 8},
+          end: {line: 1, column: 16, offset: 15}
+        },
+        reason: 'Replace `utilize` with `use`',
+        ruleId: 'utilize',
+        source: 'retext-simplify',
+        actual: 'utilize',
+        expected: ['use'],
+        url: 'https://github.com/retextjs/retext-simplify#readme'
+      }
+    )
   })
 
   await t.test('should emit messages about wordiness', async function () {

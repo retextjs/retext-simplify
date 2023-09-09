@@ -41,10 +41,9 @@
     "@types/nlcst": "^2.0.0",
     "nlcst-search": "^4.0.0",
     "nlcst-to-string": "^4.0.0",
-    "object-keys": "^1.0.0",
     "quotation": "^2.0.0",
-    "unified": "^11.0.0",
-    "unist-util-position": "^5.0.0"
+    "unist-util-position": "^5.0.0",
+    "vfile": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
