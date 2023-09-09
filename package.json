@@ -4,14 +4,15 @@
   "description": "retext plugin to check phrases for simpler alternatives",
   "license": "MIT",
   "keywords": [
-    "unified",
-    "retext",
+    "alternative",
+    "phrase",
     "plugin",
+    "retext",
+    "retext-plugin",
     "simple",
     "simpler",
     "synonym",
-    "alternative",
-    "phrase"
+    "unified"
   ],
   "repository": "retextjs/retext-simplify",
   "bugs": "https://github.com/retextjs/retext-simplify/issues",
@@ -60,18 +61,30 @@
   },
   "scripts": {
     "build": "tsc --build --clean && tsc --build && type-coverage",
-    "format": "remark . -qfo && prettier . -w --log-level warn && xo --fix",
+    "format": "remark . --frail --output --quiet && prettier . --log-level warn --write && xo --fix",
+    "prepack": "npm run build && npm run format",
+    "test": "npm run build && npm run format && npm run test-coverage",
     "test-api": "node --conditions development test.js",
-    "test-coverage": "c8 --check-coverage --branches 100 --functions 100 --lines 100 --statements 100 --reporter lcov node --conditions development test.js",
-    "test": "npm run build && npm run format && npm run test-coverage"
+    "test-coverage": "c8 --100 --check-coverage --reporter lcov npm run test-api"
   },
   "prettier": {
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
     "bracketSpacing": false,
+    "singleQuote": true,
     "semi": false,
-    "trailingComma": "none"
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": false
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-wooorm"
+    ]
+  },
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "ignoreCatch": true,
+    "strict": true
   },
   "xo": {
     "prettier": true,
@@ -79,16 +92,5 @@
       "unicorn/prefer-at": "off",
       "unicorn/prefer-string-replace-all": "off"
     }
-  },
-  "remarkConfig": {
-    "plugins": [
-      "preset-wooorm"
-    ]
-  },
-  "typeCoverage": {
-    "atLeast": 100,
-    "detail": true,
-    "strict": true,
-    "ignoreCatch": true
   }
 }
