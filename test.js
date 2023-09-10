@@ -21,14 +21,14 @@ test('retextSimplify', async function (t) {
         ancestors: [],
         column: 9,
         fatal: false,
-        message: 'Replace `utilize` with `use`',
+        message: 'Unexpected `utilize`, use `use` instead',
         line: 1,
         name: '1:9-1:16',
         place: {
           start: {line: 1, column: 9, offset: 8},
           end: {line: 1, column: 16, offset: 15}
         },
-        reason: 'Replace `utilize` with `use`',
+        reason: 'Unexpected `utilize`, use `use` instead',
         ruleId: 'utilize',
         source: 'retext-simplify',
         actual: 'utilize',
@@ -44,7 +44,7 @@ test('retextSimplify', async function (t) {
       .process('In order for this to work, clap your hands.')
 
     assert.deepEqual(file.messages.map(String), [
-      '1:1-1:13: Replace `In order for` with `for`'
+      '1:1-1:13: Unexpected `In order for`, use `for` instead'
     ])
   })
 
@@ -58,9 +58,9 @@ test('retextSimplify', async function (t) {
         )
 
       assert.deepEqual(file.messages.map(String), [
-        '1:9-1:16: Replace `utilize` with `use`',
-        '2:1-2:11: Remove `Be advised`',
-        '3:12-3:23: Replace `appropriate` with `proper`, `right`, or remove it'
+        '1:9-1:16: Unexpected `utilize`, use `use` instead',
+        '2:1-2:11: Unexpected `Be advised`, remove it',
+        '3:12-3:23: Unexpected `appropriate`, remove it, or use `proper`, `right` instead'
       ])
     }
   )
@@ -71,8 +71,8 @@ test('retextSimplify', async function (t) {
       .process('This method has no effect')
 
     assert.deepEqual(file.messages.map(String), [
-      '1:13-1:26: Replace `has no effect` with `does nothing`, `does not apply`',
-      '1:20-1:26: Replace `effect` with `choose`, `pick`, `result`'
+      '1:13-1:26: Unexpected `has no effect`, use `does nothing`, `does not apply` instead',
+      '1:20-1:26: Unexpected `effect`, use `choose`, `pick`, `result` instead'
     ])
   })
 
