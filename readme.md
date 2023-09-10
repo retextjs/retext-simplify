@@ -49,14 +49,14 @@ npm install retext-simplify
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import retextSimplify from 'https://esm.sh/retext-simplify@7'
+import retextSimplify from 'https://esm.sh/retext-simplify@8'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import retextSimplify from 'https://esm.sh/retext-simplify@7?bundle'
+  import retextSimplify from 'https://esm.sh/retext-simplify@8?bundle'
 </script>
 ```
 
