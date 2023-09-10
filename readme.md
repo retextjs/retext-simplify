@@ -18,6 +18,7 @@
 *   [Use](#use)
 *   [API](#api)
     *   [`unified().use(retextSimplify[, options])`](#unifieduseretextsimplify-options)
+    *   [`Options`](#options)
 *   [Messages](#messages)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
@@ -39,7 +40,7 @@ overlong words or phrases, and have authors that can fix that content.
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
+In Node.js (version 16+), install with [npm][]:
 
 ```sh
 npm install retext-simplify
@@ -72,10 +73,10 @@ That’s the appropriate thing to do.
 …and our module `example.js` looks as follows:
 
 ```js
-import {read} from 'to-vfile'
-import {reporter} from 'vfile-reporter'
 import {retext} from 'retext'
 import retextSimplify from 'retext-simplify'
+import {read} from 'to-vfile'
+import {reporter} from 'vfile-reporter'
 
 const file = await retext()
   .use(retextSimplify)
@@ -88,9 +89,9 @@ console.error(reporter(file))
 
 ```txt
 example.txt
-   1:9-1:16  warning  Replace `utilize` with `use`                                utilize      retext-simplify
-   2:1-2:11  warning  Remove `Be advised`                                         be-advised   retext-simplify
-  3:12-3:23  warning  Replace `appropriate` with `proper`, `right`, or remove it  appropriate  retext-simplify
+1:9-1:16  warning Unexpected `utilize`, use `use` instead                               utilize     retext-simplify
+2:1-2:11  warning Unexpected `Be advised`, remove it                                    be-advised  retext-simplify
+3:12-3:23 warning Unexpected `appropriate`, remove it, or use `proper`, `right` instead appropriate retext-simplify
 
 ⚠ 3 warnings
 ```
@@ -98,52 +99,50 @@ example.txt
 ## API
 
 This package exports no identifiers.
-The default export is `retextSimplify`.
+The default export is [`retextSimplify`][api-retext-simplify].
 
 ### `unified().use(retextSimplify[, options])`
 
 Check for simpler alternatives.
 
-##### `options`
+###### Parameters
 
-Configuration (optional).
+*   `options` ([`Options`][api-options], optional)
+    — configuration
 
-###### `options.ignore`
+###### Returns
 
-`ruleId` of phrases *not* to warn about (`Array<string>`).
+Transform ([`Transformer`][unified-transformer]).
+
+### `Options`
+
+Configuration (TypeScript type).
+
+###### Fields
+
+*   `ignore` (`Array<string>`, optional)
+    — phrases *not* to warn about
 
 ## Messages
 
 Each message is emitted as a [`VFileMessage`][vfile-message] on `file`, with
-the following fields:
-
-###### `message.source`
-
-Name of this plugin (`'retext-simplify'`).
-
-###### `message.ruleId`
-
-Normalized not ok phrase (`string`, such as `'utilize'`).
-
-###### `message.actual`
-
-Current not ok phrase (`string`, such as `'Utilize'`).
-
-###### `message.expected`
-
-List of suggestions (`Array<string>`, such as `['use']`).
+`source` set to `'retext-simplify'`, `ruleId` to the normalized phrase,
+`actual` to the unexpected phrase, and `expected` to suggestions.
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports the additional type `Options`.
+It exports the additional type [`Options`][api-options].
 
 ## Compatibility
 
-Projects maintained by the unified collective are compatible with all maintained
+Projects maintained by the unified collective are compatible with maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
-Our projects sometimes work with older versions, but this is not guaranteed.
+
+When we cut a new major release, we drop support for unmaintained versions of
+Node.
+This means we try to keep the current release line, `retext-simplify@^7`,
+compatible with Node.js 12.
 
 ## Related
 
@@ -184,9 +183,9 @@ abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/retext-simplify
 
-[size-badge]: https://img.shields.io/bundlephobia/minzip/retext-simplify.svg
+[size-badge]: https://img.shields.io/bundlejs/size/retext-simplify
 
-[size]: https://bundlephobia.com/result?p=retext-simplify
+[size]: https://bundlejs.com/?q=retext-simplify
 
 [sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
 
@@ -218,8 +217,14 @@ abide by its terms.
 
 [author]: https://wooorm.com
 
-[unified]: https://github.com/unifiedjs/unified
-
 [retext]: https://github.com/retextjs/retext
 
+[unified]: https://github.com/unifiedjs/unified
+
+[unified-transformer]: https://github.com/unifiedjs/unified#transformer
+
 [vfile-message]: https://github.com/vfile/vfile-message
+
+[api-retext-simplify]: #unifieduseretextsimplify-options
+
+[api-options]: #options
